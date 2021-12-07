@@ -10,10 +10,12 @@ const express = require("express");
 const gqlMiddleware = require("express-graphql");
 
 const ProductSchema = require('./src/microservices/product');
+const SupportSchema = require('./src/microservices/support');
 
 const schema = stitchSchemas({
   subschemas: [
     { schema: ProductSchema, batch: true },
+    { schema: SupportSchema, batch: true },
   ],
 });
 
