@@ -9,5 +9,6 @@ module.exports = {
     createMessage: async (root, {message}) => {
       await HttpProvider.post(`${baseUrl}/messages/new`, message);
       return message.textmessage
-    },
+    }, 
+    
 };

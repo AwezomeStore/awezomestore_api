@@ -1,7 +1,7 @@
 type Message{
     id: Int!  
     touser: String! 
-    fromUser: String!  
+    fromuser: String!  
     time: String! 
     textmessage: String!
 }
@@ -20,7 +20,8 @@ input NewMessage{
 }
 
 type Query{
-  getMessages: MessageList! 
+  getMessages: MessageList!  
+  getMessagetofrom(to:Int , from:Int): MessageList!
 }
 
 type Mutation{ 
