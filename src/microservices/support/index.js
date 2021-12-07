@@ -11,5 +11,5 @@ const typeDefs = readFileSync(join(__dirname, "schema.graphql"), "utf-8");
 
 module.exports = makeExecutableSchema({
   typeDefs,
-  resolvers: { Query, Mutation },
+  resolvers: { Query, Mutation},
 });
