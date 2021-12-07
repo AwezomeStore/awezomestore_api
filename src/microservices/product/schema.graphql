@@ -1,18 +1,222 @@
-type Category{
+#
+#   Schemas DB
+#
+
+# User
+type User {
+  id: Int
+  role: Int
+}
+
+# Product
+type Product {
+  id: Int
+  user_id: Int
+  name: String
+  description: String
+  stock: Int
+}
+
+# ShoppingCart
+type ShoppingCart {
+  id: Int
+  total_cost: Float
+}
+
+# Category
+type Category {
   id: Int
   name: String
   description: String
 }
 
-input GetCategory{
+# Subcategory
+type Subcategory {
+  id: Int
+  category_id: Int
+  name: String
+  description: String
+}
+
+# Comment
+type Comment {
+  id: Int
+  user_id: Int
+  product_id: Int
+  comment: String
+  type: Int
+  level: Int
+}
+
+# Price
+type Price {
+  id: Int
+  product_id: Int
+  price: Float
+  active: Boolean
+  description: String
+}
+
+# Score
+type Score {
+  id: Int
+  user_id: Int
+  product_id: Int
+  score: Float
+  comment: String
+}
+
+#
+#   Inputs
+#
+
+input InputId{
   id: Int
 }
 
-type Query{
-  getCategory: [Category]
+# User
+input InputUser {
+  id: Int
+  role: Int
 }
 
+# Product
+input InputProduct {
+  id: Int
+  user_id: Int
+  name: String
+  description: String
+  stock: Int
+}
+
+# ShoppingCart
+input InputShoppingCart {
+  id: Int
+  total_cost: Float
+}
+
+# Category
+input InputCategory {
+  id: Int
+  name: String
+  description: String
+}
+
+# Subcategory
+input InputSubcategory {
+  id: Int
+  category_id: Int
+  name: String
+  description: String
+}
+
+# Comment
+input InputComment {
+  id: Int
+  user_id: Int
+  product_id: Int
+  comment: String
+  type: Int
+  level: Int
+}
+
+# Price
+input InputPrice {
+  id: Int
+  product_id: Int
+  price: Float
+  active: Boolean
+  description: String
+}
+
+# Score
+input InputScore {
+  id: Int
+  user_id: Int
+  product_id: Int
+  score: Float
+  comment: String
+}
+
+
+#
+#   Output
+#
+
+
+#
+#   Query
+#
+
+type Query{
+  # User
+  getUser: [User]
+
+  # Product
+  getProduct: [Product]
+
+  # ShoppingCart
+  getShoppingCart: [ShoppingCart]
+
+  # Category
+  getCategory: [Category]
+
+  # Subcategory
+  getSubcategory: [Subcategory]
+
+  # Comment
+  getComment: [Comment]
+
+  # Price
+  getPrice: [Price]
+
+  # Score:
+  getScore: [Score]
+}
+
+#
+#   Mutation
+#
+
 type Mutation{
-  createCategory(category: GetCategory): Category
-  updateCategory(category: GetCategory): Category
+  # User
+  createUser(data: InputUser!): User!
+  updateUser(data: InputUser!): User!
+  deleteUser(data: InputId!): Int!
+
+  # Product
+  createProduct(data: InputProduct!): Product!
+  updateProduct(data: InputProduct!): Product!
+  deleteProduct(data: InputId!): Int!
+
+  # ShoppingCart
+  createShoppingCart(data: InputShoppingCart!): ShoppingCart!
+  updateShoppingCart(data: InputShoppingCart!): ShoppingCart!
+  deleteShoppingCart(data: InputId!): Int!
+
+  # Category
+  createCategory(data: InputCategory!): Category!
+  updateCategory(data: InputCategory!): Category!
+  deleteCategory(data: InputId): Int!
+
+  # Subcategory
+  createSubcategory(data: InputSubcategory!): Subcategory!
+  updateSubcategory(data: InputSubcategory!): Subcategory!
+  deleteSubcategory(data: InputId!): Int!
+
+  # Comment
+  createComment(data: InputComment!): Comment!
+  updateComment(data: InputComment!): Comment!
+  deleteComment(data: InputId!): Int!
+
+  # Price
+  createPrice(data: InputPrice!): Price!
+  updatePrice(data: InputPrice!): Price!
+  deletePrice(data: InputId!): Int!
+
+  # Score
+  createScore(data: InputScore!): Score!
+  updateScore(data: InputScore!): Score!
+  deleteScore(data: InputId!): Int!
+
 }

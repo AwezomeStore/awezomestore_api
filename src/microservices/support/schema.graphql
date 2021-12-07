@@ -1,0 +1,29 @@
+type Message{
+    id: Int!  
+    touser: String! 
+    fromuser: String!  
+    time: String! 
+    textmessage: String!
+}
+
+type MessageList{
+    count: Int! 
+    next: Int  
+    previous: Int  
+    results: [Message]!
+} 
+
+input NewMessage{
+  fromuser: String! 
+  touser: String!  
+  textmessage: String
+}
+
+type Query{
+  getMessages: MessageList!  
+  getMessagetofrom(to:Int , from:Int): MessageList!
+}
+
+type Mutation{ 
+    createMessage(message: NewMessage!): String!
+}
