@@ -76,59 +76,66 @@ input InputId{
 
 # User
 input InputUser {
-  role: Int!
+  id: Int
+  role: Int
 }
 
 # Product
 input InputProduct {
-  user_id: Int!
-  name: String!
-  description: String!
-  stock: Int!
+  id: Int
+  user_id: Int
+  name: String
+  description: String
+  stock: Int
 }
 
 # ShoppingCart
 input InputShoppingCart {
-  total_cost: Float!
+  id: Int
+  total_cost: Float
 }
 
 # Category
 input InputCategory {
   id: Int
-  name: String!
-  description: String!
+  name: String
+  description: String
 }
 
 # Subcategory
 input InputSubcategory {
-  category_id: Int!
-  name: String!
-  description: String!
+  id: Int
+  category_id: Int
+  name: String
+  description: String
 }
 
 # Comment
 input InputComment {
-  user_id: Int!
-  product_id: Int!
-  comment: String!
-  type: Int!
-  level: Int!
+  id: Int
+  user_id: Int
+  product_id: Int
+  comment: String
+  type: Int
+  level: Int
 }
 
 # Price
 input InputPrice {
-  product_id: Int!
-  price: Float!
-  active: Boolean!
-  description: String!
+  id: Int
+  product_id: Int
+  price: Float
+  active: Boolean
+  description: String
 }
 
 # Score
 input InputScore {
-  user_id: Int!
-  product_id: Int!
-  score: Float!
-  comment: String!
+  id: Int
+  user_id: Int
+  product_id: Int
+  score: Float
+  comment: String
 }
 
 
@@ -173,10 +180,19 @@ type Query{
 
 type Mutation{
   # User
+  createUser(data: InputUser!): User!
+  updateUser(data: InputUser!): User!
+  deleteUser(data: InputId!): Int!
 
   # Product
+  createProduct(data: InputProduct!): Product!
+  updateProduct(data: InputProduct!): Product!
+  deleteProduct(data: InputId!): Int!
 
   # ShoppingCart
+  createShoppingCart(data: InputShoppingCart!): ShoppingCart!
+  updateShoppingCart(data: InputShoppingCart!): ShoppingCart!
+  deleteShoppingCart(data: InputId!): Int!
 
   # Category
   createCategory(data: InputCategory!): Category!
@@ -184,11 +200,23 @@ type Mutation{
   deleteCategory(data: InputId): Int!
 
   # Subcategory
+  createSubcategory(data: InputSubcategory!): Subcategory!
+  updateSubcategory(data: InputSubcategory!): Subcategory!
+  deleteSubcategory(data: InputId!): Int!
 
   # Comment
+  createComment(data: InputComment!): Comment!
+  updateComment(data: InputComment!): Comment!
+  deleteComment(data: InputId!): Int!
 
   # Price
+  createPrice(data: InputPrice!): Price!
+  updatePrice(data: InputPrice!): Price!
+  deletePrice(data: InputId!): Int!
 
   # Score
+  createScore(data: InputScore!): Score!
+  updateScore(data: InputScore!): Score!
+  deleteScore(data: InputId!): Int!
 
 }
