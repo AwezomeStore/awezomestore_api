@@ -1,0 +1,31 @@
+type Payment {
+	order_id:String! 
+	cost:Int!     
+	value:Int!      
+	user_id:String!   
+	payments_method_id:String!     
+	payments_status_code:String!    
+	payment_amount:Int!  
+	gift:Boolean!         
+	currency_codes:String!   
+	value_coupon:Int! 
+}
+
+input PaymentInput{
+    order_id:String! 
+	cost:Int!     
+	value:Int!      
+	user_id:String!   
+	payments_method_id:String!
+	gift:Boolean!        
+	currency_codes:String!   
+	value_coupon:Int! 
+}
+
+type Query{
+  allPayments: [Payment]!
+}
+
+type Mutation{
+  createPayment(payment: PaymentInput!): Payment!
+}

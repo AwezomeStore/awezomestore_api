@@ -10,11 +10,13 @@ const express = require("express");
 const gqlMiddleware = require("express-graphql");
 
 const ProductSchema = require('./src/microservices/product');
+const PaymentSchema = require('./src/microservices/awezomestore_payment_ms');
 const SupportSchema = require('./src/microservices/support');
 
 const schema = stitchSchemas({
   subschemas: [
     { schema: ProductSchema, batch: true },
+    { schema: PaymentSchema, batch: true },
     { schema: SupportSchema, batch: true },
   ],
 });
