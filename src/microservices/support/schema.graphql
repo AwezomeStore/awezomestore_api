@@ -25,5 +25,5 @@ type Query{
 }
 
 type Mutation{ 
-    createMessage(message: NewMessage!): String!
+    createMessage(message: NewMessage!): Message!
 }
