@@ -12,11 +12,31 @@ input Entrada{
   country_status: Boolean!
 }
 
-type Query{
-  getCountry: [Country]!
-}
+#type Query{
+ # getCountry: [Country]!
+#}
+
+#type Query{
+ # getCountries: [Country]!
+#}
 
 type Mutation{
   createCountry(data: Entrada!): Country!
   updateCountry(data: Entrada!): Country!
+}
+
+type Cash_Order{
+  order_id: String!
+  user_id:  Int!
+  shopping_car: Int!
+  order_date: String!
+  shipping_type_id: Int!
+  payment_method_id: Int!
+  order_address: String!
+  zip_code: Int!
+  order_status:Boolean!
+}
+
+type Query{
+  getCash_Orders: [Cash_Order]!
 }
