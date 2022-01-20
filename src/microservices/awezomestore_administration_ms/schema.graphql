@@ -1,0 +1,13 @@
+type Address {
+	address_id:String
+	address_Name:String
+	zipcode:Int
+	city:String
+	phone:Int
+	departamento:String
+	address_details:String
+}
+
+type Query{
+  getAddress(id:Int): Address  
+}
