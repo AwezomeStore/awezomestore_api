@@ -1,0 +1,124 @@
+#
+#   Schemas DB
+#
+
+# Access
+type Access {
+  id: ID
+  userId: String
+  username: String
+  password: String
+  level: Int
+  authorities: [Role]
+}
+
+# Country
+type Country {
+  id: ID
+  countryName: String
+  countryCode: String
+}
+
+# Currency
+type Currency {
+  id: ID
+  currencyName: String
+  currencyAbbreviation: String
+  currencySymbol: String
+}
+
+# Info
+type Info {
+  id: ID
+  userId: String
+  countryId: String
+  currencyId: String
+  languageId: String
+  email: String
+  prhone: String
+}
+
+# Language
+type Language {
+  id: ID
+  languageName: String
+  languageAbbreviation: String
+}
+
+# Role
+type Role {
+  id: ID
+  roleName: String
+}
+
+# Token
+type Token {
+  id: ID
+  userId: String
+  token: String
+  roles: [Role]
+}
+
+# User
+#type User {
+#  id: ID
+#  firstName: String
+#  lastName: String
+#}
+
+#
+# Other types
+#
+
+# SignIn
+type OutputSignIn {
+  id: String,
+  userId: String,
+  token: String,
+  roles: [Role]
+}
+
+#
+#   Inputs
+#
+
+# SignUp
+input InputSignUp{
+  firstName: String,
+  lastName: String,
+  username: String,
+  password: String,
+  roles: [String]
+}
+
+# SignIn
+input InputSignIn {
+  username: String,
+  password: String
+}
+
+#
+#   Output
+#
+
+#
+#   Query
+#
+
+type Query{
+  # Access
+  getAccess: Access
+
+  # User
+  # getUser: User
+}
+
+#
+#   Mutation
+#
+
+type Mutation{
+  # Session
+  signUp(data: InputSignUp!): Boolean!
+  signIn(data: InputSignIn!): OutputSignIn!
+}
