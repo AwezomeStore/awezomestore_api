@@ -13,6 +13,7 @@ const ProductSchema = require('./src/microservices/product');
 const PaymentSchema = require('./src/microservices/awezomestore_payment_ms');
 const SupportSchema = require('./src/microservices/support');
 const SessionSchema = require('./src/microservices/awezomestore_session_ms');
+const ShippingSchema = require('./src/microservices/awezomestore_shipping_ms');
 const AdministrationSchema = require('./src/microservices/awezomestore_administration_ms');
 
 const schema = stitchSchemas({
@@ -21,6 +22,7 @@ const schema = stitchSchemas({
     { schema: PaymentSchema, batch: true },
     { schema: SupportSchema, batch: true },
     { schema: SessionSchema, batch: true },
+    { schema: ShippingSchema, batch: true },
     { schema: AdministrationSchema, batch: true },
   ],
 });
