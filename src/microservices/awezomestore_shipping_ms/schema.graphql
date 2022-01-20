@@ -1,0 +1,22 @@
+type Country{
+  country_id: Int!
+  country_name: String!
+  region: String!
+  country_status: Boolean!
+}
+
+input Entrada{
+  country_id: Int
+  country_name: String!
+  region: String!
+  country_status: Boolean!
+}
+
+type Query{
+  getCountry: [Country]!
+}
+
+type Mutation{
+  createCountry(data: Entrada!): Country!
+  updateCountry(data: Entrada!): Country!
+}
